@@ -185,7 +185,7 @@
             }
         };
         
-        if (![NSThread isMainThread])
+        if ([NSThread isMainThread])
         {
             block();
         }
