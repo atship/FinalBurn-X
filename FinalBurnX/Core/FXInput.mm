@@ -201,7 +201,21 @@
 		int code = [_keyboardMap virtualCodeMatching:(int) [event keyCode]];
 		if (code != FXMappingNotFound) {
 			_inputStates[code] = isDown;
-		}
+        } else if ([event keyCode] == AKKeyCodeP){ // 1 2 3 4
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeJ]] = isDown;
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeK]] = isDown;
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeL]] = isDown;
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeSemicolon]] = isDown;
+        } else if ([event keyCode] == AKKeyCodeO){ // 3 4
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeL]] = isDown;
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeSemicolon]] = isDown;
+        } else if ([event keyCode] == AKKeyCodeI){ // 2 3
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeK]] = isDown;
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeL]] = isDown;
+        } else if ([event keyCode] == AKKeyCodeU){ // 1 2
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeJ]] = isDown;
+            _inputStates[[_keyboardMap virtualCodeMatching: AKKeyCodeK]] = isDown;
+        }
 	}
 }
 
@@ -418,32 +432,32 @@
 		} else if ([[b name] isEqualToString:@"p1 start"]) {
 			[map mapDeviceCode:AKKeyCode1 virtualCode:code];
 		} else if ([[b name] isEqualToString:@"p1 up"]) {
-			[map mapDeviceCode:AKKeyCodeUpArrow virtualCode:code];
+			[map mapDeviceCode:AKKeyCodeW virtualCode:code];
 		} else if ([[b name] isEqualToString:@"p1 down"]) {
-			[map mapDeviceCode:AKKeyCodeDownArrow virtualCode:code];
-		} else if ([[b name] isEqualToString:@"p1 left"]) {
-			[map mapDeviceCode:AKKeyCodeLeftArrow virtualCode:code];
-		} else if ([[b name] isEqualToString:@"p1 right"]) {
-			[map mapDeviceCode:AKKeyCodeRightArrow virtualCode:code];
-		} else if ([[b name] isEqualToString:@"p1 fire 1"]) {
-			[map mapDeviceCode:AKKeyCodeA virtualCode:code];
-		} else if ([[b name] isEqualToString:@"p1 fire 2"]) {
 			[map mapDeviceCode:AKKeyCodeS virtualCode:code];
-		} else if ([[b name] isEqualToString:@"p1 fire 3"]) {
+		} else if ([[b name] isEqualToString:@"p1 left"]) {
+			[map mapDeviceCode:AKKeyCodeA virtualCode:code];
+		} else if ([[b name] isEqualToString:@"p1 right"]) {
 			[map mapDeviceCode:AKKeyCodeD virtualCode:code];
+		} else if ([[b name] isEqualToString:@"p1 fire 1"]) {
+			[map mapDeviceCode:AKKeyCodeJ virtualCode:code];
+		} else if ([[b name] isEqualToString:@"p1 fire 2"]) {
+			[map mapDeviceCode:AKKeyCodeK virtualCode:code];
+		} else if ([[b name] isEqualToString:@"p1 fire 3"]) {
+			[map mapDeviceCode:AKKeyCodeL virtualCode:code];
 		}
 		
 		if (usesSfLayout) {
 			if ([[b name] isEqualToString:@"p1 fire 4"]) {
-				[map mapDeviceCode:AKKeyCodeZ virtualCode:code];
+				[map mapDeviceCode:AKKeyCodeU virtualCode:code];
 			} else if ([[b name] isEqualToString:@"p1 fire 5"]) {
-				[map mapDeviceCode:AKKeyCodeX virtualCode:code];
+				[map mapDeviceCode:AKKeyCodeI virtualCode:code];
 			} else if ([[b name] isEqualToString:@"p1 fire 6"]) {
-				[map mapDeviceCode:AKKeyCodeC virtualCode:code];
+				[map mapDeviceCode:AKKeyCodeO virtualCode:code];
 			}
 		} else {
 			if ([[b name] isEqualToString:@"p1 fire 4"]) {
-				[map mapDeviceCode:AKKeyCodeF virtualCode:code];
+                [map mapDeviceCode:AKKeyCodeSemicolon virtualCode:code];
 			}
 		}
 	}];

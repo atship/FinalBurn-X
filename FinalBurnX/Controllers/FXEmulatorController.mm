@@ -138,7 +138,7 @@
 - (void)loadingDidStart
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
-//		[self->screen setHidden:YES];
+		[self->screen setHidden:YES];
 		
 		// Set up title bar spinner
 		[[[self->spinner subviews] firstObject] startAnimation:self];

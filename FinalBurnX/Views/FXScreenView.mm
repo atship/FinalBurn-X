@@ -312,7 +312,7 @@
 {
     NSSize size = [self bounds].size;
     
-    glViewport(0, 0, size.width, size.height);
+    glViewport(0, 0, size.width*2, size.height*2);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
